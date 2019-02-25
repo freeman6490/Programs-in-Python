@@ -1,0 +1,105 @@
+'''
+Luke Freeman
+turtle races
+Uses the Turtle program in Python to draw on the screen and move the "turtles" around the screen. Uses functions and loops. 
+def draw_border could be made better with a loop. This was afterthought and should have already been done. 
+'''
+
+from turtle import *
+from random import *
+another = "y"
+wins1 = 0
+wins2 = 0
+while another == "y":
+    def window_setup():
+        win = Screen()
+        win.setup(700,500,100,50)
+        win.bgcolor("green")
+
+    def draw_border(x,y):
+        border.penup()
+        border.speed(0)
+        border.pensize(10)
+        border.color("yellow")
+        border.goto(-200,200)
+        border.pendown()
+        border.goto(-200,-200)
+        border.goto(200,-200)
+        border.goto(200,200)
+        border.goto(-200,200)
+        border.penup()
+        border.goto(-100,200)
+        border.pendown()
+        border.goto(-100,-200)
+        border.penup()
+        border.goto(0,200)
+        border.pendown()
+        border.goto(0,-200)
+        border.penup()
+        border.goto(100,-200)
+        border.pendown()
+        border.goto(100,200)
+    #main        
+    #turtles
+    score_keeper_sam = Turtle()
+    score_keeper_tyler = Turtle()
+    sam = Turtle()
+    tyler = Turtle()
+    border = Turtle()
+
+    window_setup()
+    xpos = (-200)
+    ypos = (50)
+    xpos2 = (-200)
+    ypos2 = (-50)
+    #finish = (200)
+    draw_border(xpos,ypos)
+    #makes sam move to starting block
+    sam.penup()
+    sam.goto(xpos,ypos)
+    sam.pendown()
+    sam.color("white")
+    sam.pensize(5)
+    score_keeper_sam.penup()      
+    score_keeper_sam.goto(200,-200)
+    score_keeper_sam.pendown()
+    score_keeper_sam.hideturtle()
+    #makes tyler move to starting block
+    tyler.penup()
+    tyler.goto(xpos2,ypos2)
+    tyler.pendown()
+    tyler.color("orange")
+    tyler.pensize(5)
+    score_keeper_tyler.penup()
+    score_keeper_tyler.goto(200,-200)
+    score_keeper_tyler.pendown()
+    score_keeper_tyler.hideturtle()
+    
+
+    #moves turtles across screen
+    while xpos and xpos2 < 200:
+        xpos = xpos + randint(0,5)
+        ypos = ypos + randint(-5,5)
+        sam.goto(xpos,ypos)
+        xpos2 = xpos2 + randint(0,5)
+        ypos2 = ypos2 + randint(-5,5)
+        tyler.goto(xpos2,ypos2)
+
+    #first prints to screen, second prints to shell as said in instructions
+    if xpos > xpos2:
+        score_keeper_sam.write(str("Top turtle won."),font=("Arial",24,"bold"))
+        wins1 = wins1 + 1
+        print("Top turlte has %s wins. " % wins1)   
+      
+    else:
+        score_keeper_tyler.write(str("Bottom turtle won."),font=("Arial",24,"bold"))
+        wins2 = wins2 + 1
+        print("Bottom turtle has %s wins." % wins2)
+        
+    another = input("Would you like the race again(y or n)? ")
+    #normal undo did nothing, backup plan worked
+    if another == "y":
+        score_keeper_sam.undo()
+        score_keeper_tyler.undo()
+        sam.undo()
+        tyler.undo()
