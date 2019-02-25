@@ -1,0 +1,13 @@
+'''
+Luke Freeman
+Simple Hash
+Extremly simple Hash that was done to show a little bit of encryption and an understanding of hashing. First attempt. 
+'''
+base = int(input("How many hash values do you want? "))
+phrase = input("Enter the phrase to hash: ")
+total = 0
+for ch in phrase:
+    code = ord(ch)
+    total = total + code
+the_hash = total % base
+print("The hash of the phrase is %d." % the_hash)
