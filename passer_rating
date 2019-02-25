@@ -1,0 +1,37 @@
+'''
+Luke Freeman
+QBR
+Basic computational program. The purpose of this is just to show I am able to follow directions and use code to solve math problems. 
+'''
+'''
+need to ask for:
+ompletions
+attempts
+yards
+touchdowns
+interceptions
+
+Then:
+(completions/attempts -.3) X 5
+(yards/attempts -3) X .25
+(touchdowns/attempts) X 20
+2.375 - (interceptions/attempts) X 25
+
+Then:
+add all up, divide all by 6, and multiply all by 100
+'''
+
+completions = float(input("Enter number of completions: "))
+attempts = float(input("Enter number of attempts: "))
+yards = float(input("Enter number of yards: "))
+touchdowns = float(input("Enter number of touchdowns: "))
+interceptions = float(input("Enter number of interceptions: "))
+
+a = ((completions/attempts)-.3) * 5
+b = ((yards/attempts)-3) * .25
+c = (touchdowns/attempts) * 20
+d = 2.375 - ((interceptions/attempts)*25)
+
+QBR = ((a + b + c + d)/6) * 100
+
+print("The QBR is %.2f" % QBR)
