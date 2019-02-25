@@ -1,0 +1,37 @@
+'''
+Luke Freeman
+Matchmaker
+Gives person A a quiz and based on the answers given by person B (me), the program will determine if the two people are compatible at all
+'''
+print("This program figures out if you and I are meant to be. I will ask you 5 questions. To each question, answer 5 if you strongly agree, 4 if you agree, 3 is you neither agree nor disagree, 2 if you disagree, and 1 if you strongly disagree.")
+print()
+
+print("Our happiness depends on you. Don't let us down ...")
+print()
+a = int(input("Dogs are great pets. "))
+target_a = 5
+b = int(input("I care about education. "))
+target_b = 3
+c = int(input("Alternative is the best music genre. "))
+target_c = 2
+d = int(input("I care about my car. "))
+target_d = 5
+e = int(input("I work hard for my money. "))
+target_e = 5
+
+total = (a+b+c+d+e)
+target = 20
+print()
+if total == target:
+    print("We're a perfect match :). ")
+elif total >=26:
+    print("Nice try, but that's not allowed ;)")
+elif total >= 21:
+    print("Close, but not close enough, go away :|. ")
+elif total >=19:
+    print("Naa, not really feeling it. Sorry :|")
+elif total >= 10:
+    print("Wow, not even close :|")
+else:
+    print("Just get outta here honestly :(")
+#last line also takes care of if people enter 0's
