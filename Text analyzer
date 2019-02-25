@@ -1,0 +1,61 @@
+'''
+Text Analyzer
+Luke Freeman
+Takes in a file and gives back sentences, line count, punctuation, etc.
+Uses functions and for loops to move throughout a file
+'''
+import random
+#shuffles text
+def shuffle(list_of_lines):
+    random.shuffle(list_of_lines)
+    print("Here is the text shuffled: ")
+    for line in list_of_lines:
+        print(line)
+#prints the results nicely
+def print_summary(line_count,total_words,sentence_count,punctuation_total,con_count,vowel_count,sentence_length):
+    print("Results")
+    print("lines %.2d" % line_count)
+    print("Words %.2d" % total_words)
+    print("Sentences %.2d" % sentence_count)
+    print("Punctuation %.2d" % punctuation_total)
+    print("Consonants %.2d" % con_count)
+    print("Vowels %.2d" % vowel_count)
+    print("Average sentence Length: %.2f words per sentence." % sentence_length)
+
+#opens file
+file = input("Enter name of file to analyze: ")
+fvar = open(file,"r")
+#initial variables
+total_words = 0
+con_count = 0
+vowel_count = 0
+sentence_count = 0
+punctuation_total = 0
+line_count = 16
+list_of_lines = []
+#counts vowels, consonants, words, sentences, etc.
+for line in fvar:
+    line =  line.strip()
+    list_of_lines.append(line)
+    print(line)
+    for punct in line:
+        if punct in ".,!?()'-{}":
+            punctuation_total = punctuation_total + 1
+    for sentence in line:
+        if sentence in ".":
+            sentence_count = sentence_count + 1
+    for con in line:
+        if con in "bBcCdDFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz":
+            con_count = con_count + 1
+    for ch in line:
+        if ch in "aAeEiIoOuU":
+            vowel_count = vowel_count + 1
+    parts = line.split(" ")
+    word_count = len(parts)
+    total_words = total_words + word_count
+fvar.close()
+sentence_length = total_words / sentence_count
+#my two functions, shuffles and also prints results nicely
+print_summary(line_count,total_words,sentence_count,punctuation_total,con_count,vowel_count,sentence_length)
+print()
+shuffle(list_of_lines)
