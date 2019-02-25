@@ -1,0 +1,34 @@
+'''
+cash flow
+Luke Freeman
+Tracks the amount of money in a "bank account" and keeps track over a set of days. Also charges 35 dollars if the account is overdrawn.
+Uses while loops to march through the needed steps. Has starts and stops as well (the days). 
+'''
+print("This is a cashflow program. I will ask for your balance and then keep track of it throughout changes that you make. Those changes can be either depositing money or spending money. If your account is overdrawn at the end of the day, you will be charged a 35 dollar overdrawn fee.")
+print("**************************************")
+balance = float(input("Enter your starting balance: "))
+number_of_days = int(input("Enter number of days: "))
+
+for i in range (0,number_of_days):
+        choice = 0
+        while choice !=3:
+                print("Here are your options: ")
+                print("1. Deposit money")
+                print("2. Spend money")
+                print("3. End of day")
+                print("**************************************")
+                choice = float(input("Enter the number of your choice: "))
+                if choice == 1:
+                    deposit = float(input("Enter amount to deposit: "))
+                    balance = balance + deposit
+                    print("Your current balance is $%f." % balance)
+                elif choice == 2:
+                    spent = float(input("How much money did you spend? "))
+                    balance = balance - spent
+                    print("Your current balance is $%f." % balance)
+        if balance < 0:
+                print("You are overdrawn, your account has been charged 35 dollars.")
+                overdrawn = balance - 35
+                print("Your new balance is $%f." % overdrawn)
+print("Your final balance is $%f." % balance)
+print("**************************************")
